@@ -1,0 +1,27 @@
+1. Add Credentials to windows credential manager.
+2. Enable Google Chrome extension
+3. Enable Open only single tab.
+4. Get Google Sheet ID
+5. Generate Google sheet API key.
+6. Allow API for first time.
+
+
+My login for google chrome: after logging in you will have leadleaper extension
+nik@efficient.ninja
+jamesbond2020!
+Nik.bender@leadmtch.com
+
+
+https://docs.google.com/spreadsheets/d/1NucjpFGDlJoaRVR7CMUBwUlQWLCqO9QyOCgDTJBsX1A/edit?usp=sharing
+
+uinotify@liibooz.asia
+incoming: liibooz.asia
+outgoing: liibooz.asia (need authentification)
+suppored IMAP, POP3, SMTP
+port: 25
+password uiPath2020!
+
+API Key: AIzaSyA2tn8P7mZ0fsk7oWlja9Bwmmaa7vHvDB0
+
+osbournesarah95@gmail.com
+Sarahos2020!

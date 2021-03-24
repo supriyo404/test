@@ -1,0 +1,45 @@
+{
+  "name": "Leadleaper_bot",
+  "description": "Automate the process of Leadleaper.",
+  "main": "Mainbot.xaml",
+  "dependencies": {
+    "GoogleSpreadsheet.Activities": "[1.0.7495.12930]",
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
+    "UiPath.Excel.Activities": "[2.9.0-preview]",
+    "UiPath.GSuite.Activities": "[1.5.1]",
+    "UiPath.Mail.Activities": "[1.3.0]",
+    "UiPath.MicrosoftOffice365.Activities": "[1.3.1]",
+    "UiPath.System.Activities": "[20.6.1-preview]",
+    "UiPath.UIAutomation.Activities": "[20.6.0-preview]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.6.0.0",
+  "projectVersion": "1.2.9",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "fileInfoCollection": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic"
+}

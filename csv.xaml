@@ -1,0 +1,488 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="csv" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ug="clr-namespace:UiPath.GSuite;assembly=UiPath.GSuite" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_GoogleSh" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="usrnameEmail" Type="InArgument(x:String)" />
+    <x:Property Name="pwdstrEmail" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:csv.in_GoogleSh>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:csv.in_GoogleSh>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1185,4496</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>csv_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="33">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Contracts</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="csv" sap:VirtualizedContainerService.HintSize="630,4291" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="csvDT" />
+      <Variable x:TypeArguments="sd:DataTable" Name="emailDT" />
+      <Variable x:TypeArguments="x:Int32" Name="CountEmail" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="ListDict" />
+      <Variable x:TypeArguments="s:String[]" Name="Filesin" />
+      <Variable x:TypeArguments="x:String" Name="att2" />
+      <Variable x:TypeArguments="x:String" Name="filenam" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="588,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing List CSV File&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="588,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[ListDict]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(of String,Object)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="588,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[Filesin]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_Config.Item("ExportPath").ToString)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="588,3110" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Filesin]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,2976" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Process CSV" sap:VirtualizedContainerService.HintSize="510,1739" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[csvDT]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[item]" sap:VirtualizedContainerService.HintSize="354,51" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ReadCsvFile>
+              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Company1" DataTable="[csvDT]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="354,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+              <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Bounce Check" DataTable="[csvDT]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="354,22" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+              <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="354,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="SetOrdinal">
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="sd:DataColumn">[csvDT.Columns(10)]</InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </InvokeMethod>
+              <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="354,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="SetOrdinal">
+                <InvokeMethod.TargetObject>
+                  <InArgument x:TypeArguments="sd:DataColumn">[csvDT.Columns(11)]</InArgument>
+                </InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="x:Int32">8</InArgument>
+              </InvokeMethod>
+              <Assign sap:VirtualizedContainerService.HintSize="354,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="sd:DataTable">[emailDT]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="sd:DataTable">[csvDT.DefaultView.ToTable(false,"Email").Copy()]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[csvDT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="354,300" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Object">[row.Item("Company1")]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Object">[row.Item("Company")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEachRow>
+              <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[csvDT]" Delimitator="Comma" DisplayName="Write CSV Modified" FilePath="[item]" sap:VirtualizedContainerService.HintSize="354,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WriteCsvFile>
+              <Assign DisplayName="Remove Blank" sap:VirtualizedContainerService.HintSize="354,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="sd:DataTable">[emailDT]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="sd:DataTable">[emailDT.Rows.Cast(Of DataRow)().Where(Function(row) Not row.ItemArray.All(Function(field) field Is DBNull.Value Or field.Equals(""))).CopyToDataTable()]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="354,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[CountEmail]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[emailDT.Rows.Count]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap:VirtualizedContainerService.HintSize="354,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[att2]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[in_Config.Item("Process_CSV_Path").ToString+"\"+Path.GetFileNameWithoutExtension(item)+"_bounce.csv"]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[emailDT]" Delimitator="Comma" DisplayName="Write CSV Only Emails" FilePath="[att2]" sap:VirtualizedContainerService.HintSize="354,152" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:WriteCsvFile>
+            </Sequence>
+            <Assign sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[filenam]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Path.GetFileNameWithoutExtension(item)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[ListDict(filenam)]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Object">[CountEmail]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Sending email..&quot;]" />
+            <uga:GSuiteApplicationScope ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="545593870517-c4df8be7lqs0ciqg5hmovepa5ubbau3q.apps.googleusercontent.com" CredentialSecret="2ojBijaYMRjf1GhIg3H6FXJ4" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="510,490" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_4" KeyType="JSON" Services="Unselected" User="osbournesarah95@gmail.com">
+              <uga:GSuiteApplicationScope.AuthenticationScopes>
+                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                  <InArgument x:TypeArguments="x:String">https://mail.google.com/</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/gmail.modify</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/gmail.insert</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/gmail.compose</InArgument>
+                </scg:List>
+              </uga:GSuiteApplicationScope.AuthenticationScopes>
+              <uga:GSuiteApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,379" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uga:SendEmail AttachmentList="{x:Null}" Bcc="{x:Null}" Body="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" Cc="[{in_Config.Item(&quot;Email1_CC&quot;).ToString}]" DisplayName="Send Mail Message" sap:VirtualizedContainerService.HintSize="434,287" sap2010:WorkflowViewState.IdRef="SendEmail_2" IsDraft="False" IsHTML="False" Subject="[in_Config.Item(&quot;Email_Subject&quot;).ToString+&quot; Bounce check  &quot;+Path.GetFileNameWithoutExtension(item)]" To="[{in_config.Item(&quot;Recp_Email_ID&quot;).ToString}]">
+                      <uga:SendEmail.Attachments>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                          <InArgument x:TypeArguments="x:String">[item]</InArgument>
+                          <InArgument x:TypeArguments="x:String">[att2]</InArgument>
+                        </scg:List>
+                      </uga:SendEmail.Attachments>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uga:SendEmail>
+                  </Sequence>
+                </ActivityAction>
+              </uga:GSuiteApplicationScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uga:GSuiteApplicationScope>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:SendMail Bcc="{x:Null}" Body="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Cc="[in_Config.Item(&quot;Email1_CC&quot;).ToString+&quot;,&quot;+in_Config.Item(&quot;Email2_CC&quot;).ToString]" DisplayName="Send SMTP Mail Message" Email="[usrnameEmail]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="Leadleaper Uipath Bot" Password="[pwdstrEmail]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="[in_Config.Item(&quot;Email_Subject&quot;).ToString+&quot; Bounce check  &quot;+Path.GetFileNameWithoutExtension(item)]" To="[in_Config.Item(&quot;Recp_Email_ID&quot;).ToString]">
+                    <ui:SendMail.Files>
+                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                        <InArgument x:TypeArguments="x:String">[att2]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[item]</InArgument>
+                      </scg:List>
+                    </ui:SendMail.Files>
+                  </ui:SendMail>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Delay Duration="00:00:30" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Email Sent.&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <Sequence DisplayName="Upload" sap:VirtualizedContainerService.HintSize="588,587" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Updating Count to Sheet&quot;]" />
+      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,143" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uga:GSuiteApplicationScope ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="190293947999-vfqr6l19j8pspfg9lrbc7qb66pl8r8j4.apps.googleusercontent.com" CredentialSecret="Nbw71INgNoiWwqt3Yb7jvmLC" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="JSON" Services="Unselected">
+              <uga:GSuiteApplicationScope.AuthenticationScopes>
+                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                  <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive.file</InArgument>
+                  <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive</InArgument>
+                </scg:List>
+              </uga:GSuiteApplicationScope.AuthenticationScopes>
+              <uga:GSuiteApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,174" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uga:ReadRange ContinueOnError="{x:Null}" AuthScopesInvalid="False" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="ReadRange_1" IncludeHeaders="True" Result="[in_GoogleSh]" SheetName="Sheet1" SpreadsheetId="1nfWC2htvLWuuZj1lJw8vytn4Xrg5AwYNqJF5QvSRW2s">
+                      <uga:ReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </uga:ReadRange.Range>
+                    </uga:ReadRange>
+                  </Sequence>
+                </ActivityAction>
+              </uga:GSuiteApplicationScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uga:GSuiteApplicationScope>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[in_GoogleSh]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="480,379" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <TryCatch.Try>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[row.Item(3)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[ListDict.Item(row.Item(2).ToString).ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachRow>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Updating Email Count to Google Sheet&quot;]" />
+      <uga:GSuiteApplicationScope ApiKey="{x:Null}" ContinueOnError="{x:Null}" Folder="{x:Null}" KeyPath="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="951088965730-1q8soarjh4fijvsqpg1s9bdgmtah1den.apps.googleusercontent.com" CredentialSecret="_Oqu9RAysUZx01Af08M9E0TD" DataStoreLocation="Local disk" DisplayName="GSuite Application Scope" HasDomainWideAccesss="False" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_2" KeyType="JSON" Services="Unselected">
+        <uga:GSuiteApplicationScope.AuthenticationScopes>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive.file</InArgument>
+            <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/drive</InArgument>
+            <InArgument x:TypeArguments="x:String">https://www.googleapis.com/auth/spreadsheets</InArgument>
+          </scg:List>
+        </uga:GSuiteApplicationScope.AuthenticationScopes>
+        <uga:GSuiteApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,202" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uga:WriteRange ContinueOnError="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" DataTable="[in_GoogleSh]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,110" sap2010:WorkflowViewState.IdRef="WriteRange_3" IncludeHeaders="True" IsInsideBatchUpdateScope="False" SheetName="[in_Config.Item(&quot;GoogleSheet_name&quot;).ToString]" SpreadsheetId="[in_Config.Item(&quot;GoogleSheet_ID&quot;).ToString]" StartingCell="A1" />
+            </Sequence>
+          </ActivityAction>
+        </uga:GSuiteApplicationScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </uga:GSuiteApplicationScope>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="588,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Processing List CSV File Complete&quot;]" />
+  </Sequence>
+</Activity>
